@@ -6,6 +6,10 @@
     "toolkit",
     "cli"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:joeslee/jo-server.git"
+  },
   "files": [
     "lib",
     "bin"
