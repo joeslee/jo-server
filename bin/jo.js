@@ -3,6 +3,7 @@
 'use strict';
 var http = require("http");
 
+var mimeType = require("./mime");
 // var commander = require("commander");
 
 var childProcess = require('child_process');
@@ -11,13 +12,13 @@ var fs = require('fs');
 var path = require("path");
 var url = require("url");
 
-for(var i=1, l=process.argv.length; i<l; i++) {
+for (var i = 1, l = process.argv.length; i < l; i++) {
 	if (/^-{0,2}\d+$/.test(process.argv[i])) {
 		var argPort = process.argv[i].match(/\d+/)[0]
 	}
 }
 
-var port = argPort || 8000 + Math.floor(Math.random()*1000);
+var port = argPort || 8000 + Math.floor(Math.random() * 1000);
 
 //获取当前运行目录下的文件信息
 fs.readdir(process.cwd(), function(err, files) {
@@ -29,7 +30,7 @@ fs.readdir(process.cwd(), function(err, files) {
 });
 
 var server = http.createServer(function(request, response) {
-	console.log(request.method,request.url);
+	console.log(request.method, request.url);
 
 	var pathname = url.parse(request.url).pathname;
 
@@ -70,7 +71,7 @@ var server = http.createServer(function(request, response) {
 				} else {
 
 					response.writeHead(200, {
-						'Content-Type': 'text/html'
+						'Content-Type': mimeType[path.parse(request.url).ext.slice(1)] || "text/plain"
 					});
 
 					response.write(file, "binary");
