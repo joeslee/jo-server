@@ -1,7 +1,7 @@
 {
   "name": "jo-server",
   "description": "The first cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "keywords": [
     "toolkit",
     "cli"
