@@ -6,6 +6,11 @@
     "toolkit",
     "cli"
   ],
+  "author": {
+    "email": "joeslee@joeslee.cc",
+    "name": "Joes Lee",
+    "url": "http://github.com/joeslee"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com:joeslee/jo-server.git"
@@ -15,9 +20,11 @@
     "bin"
   ],
   "bin": {
-    "jo": "./bin/jo.js"
+    "jo": "cli.js"
   },
   "dependencies": {
+    "commander": "^2.9.0",
+    "mime": "^1.3.4"
   },
   "devDependencies": {},
   "scripts": {},
